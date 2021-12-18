@@ -85,11 +85,11 @@ del_button = driver.find_element(By.XPATH,
 
 del_button.click()
 time.sleep(5)
-
+print('№5 Товар удален')
 
 # TК-003	Проверка функции перехода по ссылке на социальные сети сайта через кнопку
 
 insta_button = driver.find_element(By.XPATH,
                                    '//*[@id="chrome-footer"]/footer/div[1]/div[1]/ul[1]/li[2]/a')
 insta_button.click()
-print('№5 Переход по кнопке успешен')
+print('№6 Переход по кнопке успешен')
