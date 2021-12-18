@@ -1,3 +1,4 @@
+import datetime
 import time
 
 from selenium import webdriver
@@ -6,7 +7,6 @@ from selenium.webdriver.common.by import By
 driver = webdriver.Chrome()
 
 driver.get('https://www.asos.com/ru/men/')
-
 
 # TК-005	Проверка функции поиск по сайту
 search_box = driver.find_element(By.XPATH,
@@ -21,7 +21,7 @@ answer = driver.find_element(By.XPATH,
                              '//*[@id="search-term-banner"]/p[2]')
 
 if answer.text != u'галстук':
-    print("№1 Ожидаемый ответ верен =  %r" % answer.text)
+    print(datetime.datetime.now(), "№1 Ожидаемый ответ верен =  %r" % answer.text)
 else:
     print("Ожидаемый ответ ", answer.text, " не найден")
 
@@ -40,8 +40,7 @@ type_sort = driver.find_element(By.XPATH,
 type_sort.click()
 time.sleep(1)
 sort_button.click()
-print('№2 Сортировка успешна')
-
+print(datetime.datetime.now(), '№2 Сортировка успешна')
 
 # TК-004	Проверка функции добавление товара в Избранное
 
@@ -58,9 +57,8 @@ wish_list_button = driver.find_element(By.XPATH,
                                        '//*[@id="chrome-sticky-header"]/div[1]/div/ul/li[2]/a')
 wish_list_button.click()
 
-print('№3 Товар добавлен в список желаемого')
+print(datetime.datetime.now(), '№3 Товар добавлен в список желаемого')
 time.sleep(1)
-
 
 # TК-007	Проверка функции добавления товара в корзину
 sell_box2 = driver.find_element(By.XPATH,
@@ -77,7 +75,7 @@ bag_button = driver.find_element(By.XPATH,
                                  '//*[@id="chrome-sticky-header"]/div[1]/div/ul/li[3]/a')
 bag_button.click()
 time.sleep(3)
-print('№4 Товар добавлен в корзину')
+print(datetime.datetime.now(), '№4 Товар добавлен в корзину')
 
 # ТК-002 Удаление товара из корзины
 del_button = driver.find_element(By.XPATH,
@@ -85,11 +83,13 @@ del_button = driver.find_element(By.XPATH,
 
 del_button.click()
 time.sleep(5)
-print('№5 Товар удален')
+print(datetime.datetime.now(), '№5 Товар удален')
 
 # TК-003	Проверка функции перехода по ссылке на социальные сети сайта через кнопку
 
 insta_button = driver.find_element(By.XPATH,
                                    '//*[@id="chrome-footer"]/footer/div[1]/div[1]/ul[1]/li[2]/a')
 insta_button.click()
-print('№6 Переход по кнопке успешен')
+print(datetime.datetime.now(), '№6 Переход по кнопке успешен')
+time.sleep(15)
+driver.quit()
