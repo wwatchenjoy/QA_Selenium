@@ -92,4 +92,5 @@ insta_button = driver.find_element(By.XPATH,
 insta_button.click()
 print(datetime.datetime.now(), '№6 Переход по кнопке успешен')
 time.sleep(15)
+
 driver.quit()
